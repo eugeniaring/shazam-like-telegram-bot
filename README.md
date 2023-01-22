@@ -1,1 +1,1 @@
-# shazam-like-telegram-bot
+# Shazam-like Telegram Bot
