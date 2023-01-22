@@ -87,7 +87,7 @@ def search_words(words):
     
 
 @bot.message_handler(content_types=['voice'])
-def telegram_bot_path(message,bot_token=os.getenv("BOT_TOKEN")):
+def telegram_bot(message,bot_token=os.getenv("BOT_TOKEN")):
     client = Steamship(api_key=os.getenv("STEAM_TOKEN"))
     # insert audio
     file_info = bot.get_file(message.voice.file_id)
