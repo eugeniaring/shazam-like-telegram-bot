@@ -3,21 +3,22 @@ import json
 import requests
 import subprocess
 import urllib.request 
+from dotenv import load_dotenv
 import time
 
 from steamship import Steamship, TaskState
 import telebot
 from serpapi import GoogleSearch
 
-#from flask import Flask
 
 ## telegram bot
 f = open("cred.json", "rb")
 params = json.load(f)
 BOT_TOKEN = params['BOT_TOKEN']
+
+load_dotenv()
 bot = telebot.TeleBot(BOT_TOKEN)
-# Flask allows to avoid autopolling
-#app = Flask(__name__)
+
 
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
@@ -72,7 +73,8 @@ def search_words(words):
     "hl": "en",
     "gl": "us",
     "google_domain": "google.com",
-    "api_key": "d11843f73da0f9fc2632f1a3c2f6d48cf4a43766e048e7d01bbef8847ee4868f"
+    "api_key": params['API_KEY']
+
     }
     search = GoogleSearch(params)
     results = search.get_dict()
@@ -87,8 +89,8 @@ def search_words(words):
     
 
 @bot.message_handler(content_types=['voice'])
-def telegram_bot_path(message,bot_token=BOT_TOKEN):
-    client = Steamship(api_key="98974D94-5DB1-4B3A-860A-012F167C8019")
+def telegram_bot_path(message,bot_token=params["BOT_TOKEN"]):
+    client = Steamship(api_key=params["STEAM_API_KEY"])
     # insert audio
     file_info = bot.get_file(message.voice.file_id)
     # extract telegram's url of the audio 
@@ -111,6 +113,7 @@ def telegram_bot_path(message,bot_token=BOT_TOKEN):
         bot.reply_to(message, 'Song not found!')
     else:
          bot.reply_to(message, result)
-    
+
 
 bot.infinity_polling()
+
