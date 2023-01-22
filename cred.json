@@ -1,5 +1,5 @@
 {
-    "BOT_TOKEN":<your_bot_token>,
-    "API_KEY":<your_serpapi_key>,
-    "STEAM_API_KEY":<your_steamship_api_key>
+    "BOT_TOKEN":"your_bot_token",
+    "API_KEY":"your_serpapi_key",
+    "STEAM_API_KEY":"your_steamship_api_key"
      }
