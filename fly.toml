@@ -1,0 +1,8 @@
+# fly.toml file generated for shazam-like-bot on 2023-01-21T22:21:55+01:00
+
+app = "shazam-like-bot"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
