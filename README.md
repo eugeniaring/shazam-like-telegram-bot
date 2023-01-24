@@ -6,7 +6,7 @@ In this project, we are going to create and deploy a telegram bot that transcrib
 
 ## Detailed description of the project
 
-The article with the explanations is [How to build a Shazam-like Web Application using Python]()
+The article with the explanations is [How to build a Shazam-like Telegram Bot using Python](https://towardsdatascience.com/how-to-build-a-shazam-like-telegram-bot-using-python-98dc081c53d5?sk=ab629aad0f5fe7810027cdce5ee4165b)
 
 ## Tools used in the project
 
